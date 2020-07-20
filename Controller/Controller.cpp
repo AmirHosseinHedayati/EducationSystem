@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
-
+#include <algorithm>
 using namespace std;
 
 Controller::Controller(std::string currentSemester)
@@ -145,9 +145,9 @@ bool Controller::inCurrentSemesterCourse( const std::string& ID , std::string co
     map<std::string, double>::iterator it;
     it = findStudent(ID).currentSemesterCourses.find(courseName);
     if(it == findStudent(ID).currentSemesterCourses.end())
-        return false;
+        return false;  //element not found
     else
-        return true;
+        return true;   //element found
 }
 
 Student& Controller:: findStudent(string ID){
@@ -160,8 +160,22 @@ Student& Controller:: findStudent(string ID){
 }
 
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
+Course course;
+bool flag;
+std::vector<string>::iterator it;
+std::vector<string>::iterator it2;
 
-    if(inCourses(courseName) && !inPassedCourse(studentID,courseName)){
+it2 = std::find(course.preCourses.begin(),course.preCourses.end(),courseName);
+
+it = std::find(findStudent(studentID).passedCourses.begin(),
+        findStudent(studentID).passedCourses.end(),it2);
+
+    if (it == findStudent(studentID).passedCourses.end())
+        flag = false;  //element not found
+    else
+        flag = true; //element found
+
+    if(inCourses(courseName) && !inPassedCourse(studentID,courseName) && flag ){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
 }
