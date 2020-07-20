@@ -6,18 +6,18 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/d/clion/EducationSystem/Model/Person.h
+/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.cpp
+DoubleMajorStudent.h
+/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.h
+
+/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.h
+Student.h
+/cygdrive/d/clion/EducationSystem/Model/Student.h
 string
 -
 
-/cygdrive/d/clion/EducationSystem/Model/Student.cpp
-Student.h
-/cygdrive/d/clion/EducationSystem/Model/Student.h
-regex
--
-stdexcept
--
-sstream
+/cygdrive/d/clion/EducationSystem/Model/Person.h
+string
 -
 
 /cygdrive/d/clion/EducationSystem/Model/Student.h
