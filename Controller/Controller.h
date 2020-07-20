@@ -35,6 +35,7 @@ public:
     bool inProfessors(const std::string& ID) const;
     bool inProfessorsByLastName(const std::string& last) const;
     bool inCourses(const std::string& courseName) const;
+
 };
 
 
