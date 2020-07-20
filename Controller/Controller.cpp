@@ -172,3 +172,15 @@ void Controller::dropCourse(const std::string& studentID, const std::string& cou
        findStudent(studentID).currentSemesterCourses.erase(courseName);
 }
 }
+
+void Controller::showCurrentSemesterCourses(){
+    for(const auto& csc : currentSemesterCourses){
+        cout << csc.toString() << endl;
+    }
+}
+
+void Controller::showStudentCurrentSemesterCourses(const std::string& studentID){
+    for(const auto& csc : findStudent(studentID).currentSemesterCourses){
+        cout << csc.first <<"\t"<<csc.second<< endl;
+    }
+}

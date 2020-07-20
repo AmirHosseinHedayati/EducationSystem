@@ -30,6 +30,8 @@ public:
     void takeCourse(const std::string& studentID, const std::string& courseName);
     Student& findStudent(std::string ID);
     void dropCourse(const std::string& studentID, const std::string& courseName);
+    void showCurrentSemesterCourses();
+    void showStudentCurrentSemesterCourses(const std::string& studentID);
 
 
     bool inStudents(const std::string& ID) const;

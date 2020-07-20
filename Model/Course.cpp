@@ -39,3 +39,8 @@ std::istream& operator>>(std::istream & input, Course& course){
 
     return input;
 }
+std::string Course::toString() const{
+    ostringstream output;
+    output << courseName;
+    return output.str();
+}

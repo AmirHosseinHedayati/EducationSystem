@@ -1,6 +1,7 @@
 #ifndef TA_19_COURSE_H
 #define TA_19_COURSE_H
 
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -19,6 +20,8 @@ public:
     Course(){}
     Course(std::string courseName, std::string profLastName, std::string semester
            , std::vector<std::string> preCourses);
+    std::string toString() const;
+
 };
 
 
