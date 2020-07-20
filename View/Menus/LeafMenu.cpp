@@ -1,5 +1,6 @@
 #include "LeafMenu.h"
-
+#include <fstream>
+#include <iterator>
 using namespace std;
 
 LeafMenu::LeafMenu(std::string name, Menu* parent)
@@ -95,10 +96,42 @@ void LeafMenu::run() {
 
     }
 
-    else if(name == "ReadMembersFromFile"){
+    else if(name == "ReadMembersFromFile") {
 
+        string command;
+        char *cmd = new char[1000];
+        ifstream input("members.txt");
+        for (size_t i{1}; i <= 6; ++i) {
+            input.getline(cmd, 1000);
+            command = (string) cmd;
+            istringstream iss{command};
+            vector<string> results{istream_iterator<string>{iss}, istream_iterator<string>()};
+
+            if(results[0] == "P"){
+                Person *person;
+                double wh = (double&)results[5];
+             person = new Professor (results[1], results[2], results[3], wh  ,results[4]);
+              controller.mathClass.push_back(person);
+            }
+            else if(results[0] == "S"){
+                Person *person;
+                std::map<std::string, double> csc {0,0};
+                std::vector<std::string> pc {0};
+                double wh = (double&)results[4];
+              person = new Student (results[1] , results[2] , results[3] , wh , pc , csc);
+              controller.mathClass.push_back(person);
+
+            }
+            else if(results[0] == "D"){
+                Person *person;
+                std::map<std::string, double> csc {0,0};
+                std::vector<std::string> pc {0};
+                double wh = (double&)results[4];
+              person = new DoubleMajorStudent (results[1] , results[2] , results[3] , wh , pc , csc);
+              controller.mathClass.push_back(person);
+            }
+        }
     }
-
     else if(name == "Calculate Total Salary"){
 
     }
@@ -107,3 +140,4 @@ void LeafMenu::run() {
         throw invalid_argument("This Menu hase not been defined!!");
     }
 }
+

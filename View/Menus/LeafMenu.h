@@ -3,7 +3,8 @@
 
 #include <string>
 #include "Menu.h"
-
+#include "../../Model/DoubleMajorStudent.h"
+#include "../../Controller/Controller.h"
 class LeafMenu : public Menu{
 public:
     LeafMenu(std::string name, Menu* parent);
