@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/d/clion/EducationSystem/Controller/Controller.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Controller/Controller.cpp.o"
   "/cygdrive/d/clion/EducationSystem/Model/Course.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Course.cpp.o"
+  "/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Model/DoubleMajorStudent.cpp.o"
   "/cygdrive/d/clion/EducationSystem/Model/Person.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Person.cpp.o"
   "/cygdrive/d/clion/EducationSystem/Model/Professor.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Professor.cpp.o"
   "/cygdrive/d/clion/EducationSystem/Model/Student.cpp" "/cygdrive/d/clion/EducationSystem/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Student.cpp.o"

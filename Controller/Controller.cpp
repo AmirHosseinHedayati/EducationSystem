@@ -160,22 +160,22 @@ Student& Controller:: findStudent(string ID){
 }
 
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
-Course course;
-bool flag;
-std::vector<string>::iterator it;
-std::vector<string>::iterator it2;
+//Course course;
+//bool flag;
+//std::vector<string>::iterator it;
+//std::vector<string>::iterator it2;
 
-it2 = std::find(course.preCourses.begin(),course.preCourses.end(),courseName);
+//it2 = std::find(course.preCourses.begin(),course.preCourses.end(),courseName);
 
-it = std::find(findStudent(studentID).passedCourses.begin(),
-        findStudent(studentID).passedCourses.end(),it2);
+//it = std::find(findStudent(studentID).passedCourses.begin(),
+      //  findStudent(studentID).passedCourses.end(),it2);
 
-    if (it == findStudent(studentID).passedCourses.end())
-        flag = false;  //element not found
-    else
-        flag = true; //element found
-
-    if(inCourses(courseName) && !inPassedCourse(studentID,courseName) && flag ){
+    //if (it == findStudent(studentID).passedCourses.end())
+       // flag = false;  //element not found
+  //  else
+      //  flag = true; //element found
+//
+    if(inCourses(courseName) && !inPassedCourse(studentID,courseName) ){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
 }
