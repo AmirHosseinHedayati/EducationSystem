@@ -131,6 +131,25 @@ bool Controller:: inProfessorsByLastName(const std::string& last) const{
     return false;
 }
 
+bool Controller::inPassedCourse(const std::string& ID , std::string courseName) {
+    for(auto& passedCourse : findStudent(ID).passedCourses) {
+        if (passedCourse == courseName) {
+            return true;
+        }
+    }
+    return false;
+
+}
+
+bool Controller::inCurrentSemesterCourse( const std::string& ID , std::string courseName){
+    map<std::string, double>::iterator it;
+    it = findStudent(ID).currentSemesterCourses.find(courseName);
+    if(it == findStudent(ID).currentSemesterCourses.end())
+        return false;
+    else
+        return true;
+}
+
 Student& Controller:: findStudent(string ID){
     for( auto& stu : students ){
         if(stu.studentId == ID){
@@ -141,7 +160,15 @@ Student& Controller:: findStudent(string ID){
 }
 
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
-    if(inCourses(courseName)){
+
+    if(inCourses(courseName) && !inPassedCourse(studentID,courseName)){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
+}
+
+void Controller::dropCourse(const std::string& studentID, const std::string& courseName){
+
+    if(inCourses(courseName) && inCurrentSemesterCourse(studentID , courseName)  ){
+       findStudent(studentID).currentSemesterCourses.erase(courseName);
+}
 }
