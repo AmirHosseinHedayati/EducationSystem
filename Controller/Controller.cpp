@@ -159,23 +159,30 @@ Student& Controller:: findStudent(string ID){
     throw invalid_argument("The Student was not found!!");
 }
 
+bool Controller::ispassedPreCourses(std::vector<std::string> v1, std::vector<std::string> v2)
+{
+    int passedPre = 0;
+    for (int i = 0; i != v1.size(); ++i)
+    {
+        for (int j = 0; j != v2.size(); ++j)
+        {
+            if (v1[i] == v2[j])
+            {
+                ++passedPre;
+                break;
+            }
+        }
+    }
+
+    if (passedPre == v2.size())
+        return true;
+
+    else
+        return false;
+}
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
-//Course course;
-//bool flag;
-//std::vector<string>::iterator it;
-//std::vector<string>::iterator it2;
-
-//it2 = std::find(course.preCourses.begin(),course.preCourses.end(),courseName);
-
-//it = std::find(findStudent(studentID).passedCourses.begin(),
-      //  findStudent(studentID).passedCourses.end(),it2);
-
-    //if (it == findStudent(studentID).passedCourses.end())
-       // flag = false;  //element not found
-  //  else
-      //  flag = true; //element found
-//
-    if(inCourses(courseName) && !inPassedCourse(studentID,courseName) ){
+Course course;
+    if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,course.preCourses )){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
 }

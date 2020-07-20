@@ -16,6 +16,7 @@ private:
     std::vector<Professor> professors;
     std::vector<Course> courses;
     std::vector<Course> currentSemesterCourses;
+    std::vector<Person*> mathClass;
     Controller() = default;
 
 public:
@@ -40,7 +41,7 @@ public:
     bool inProfessors(const std::string& ID) const;
     bool inProfessorsByLastName(const std::string& last) const;
     bool inCourses(const std::string& courseName) const;
-
+    bool ispassedPreCourses(std::vector<std::string> v1, std::vector<std::string> v2);
 };
 
 

@@ -5,9 +5,9 @@
 
 using namespace std;
 
-bool validate(const string& str, const string& ptn){
-    regex pattern{ptn};
-    return regex_match(str, pattern);
+bool Student::validate(const string& str, const string& ptn){
+   regex pattern{ptn};
+   return regex_match(str, pattern);
 }
 
 Student::Student(const std::string& studentId, std::string first, std::string last , double workHours,

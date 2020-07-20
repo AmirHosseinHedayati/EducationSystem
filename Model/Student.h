@@ -25,7 +25,6 @@ public:
     std::string toString() const;
 
     void setPassedCourses(const std::vector<std::string> &passedCourses);
-
     void setCurrentSemesterCourses(const std::map<std::string, double> &currentSemesterCourses);
 
 };
