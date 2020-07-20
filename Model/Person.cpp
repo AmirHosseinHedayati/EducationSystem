@@ -14,6 +14,10 @@ const std::string &Person::getLastName() const {
     return lastName;
 }
 
-double Person::getWorkHours() const {
+double Person::getWorkHours()const {
     return workHours;
+}
+
+double Person::setWorkHours(double wh) {
+    workHours = wh;
 }
