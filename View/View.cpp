@@ -12,8 +12,15 @@ void View::makeMenus( Menu* root ){
     auto studentMenu = new InternalMenu{"Student Menu", root};
     auto professorMenu = new InternalMenu{"Professor Menu", root};
     auto managerMenu = new InternalMenu{"Manager Menu", root};
+    auto mathClass = new InternalMenu{"MathClass" , root};
     root->setSubMenus(vector<Menu*>
-            {commandsFromFile, studentMenu, professorMenu, managerMenu});
+            {commandsFromFile, studentMenu, professorMenu, managerMenu , mathClass});
+
+    //make mathClass Menu
+    auto readMembersFromFile = new LeafMenu{"ReadMembersFromFile" , mathClass};
+    auto calculateTotalSalary = new LeafMenu{"Calculate Total Salary" , mathClass};
+    mathClass->setSubMenus(vector<Menu*>
+                           {readMembersFromFile,calculateTotalSalary});
 
     // make Student Menu
     auto showThisSemesterCourses = new LeafMenu{"Show This Semester Courses", studentMenu};

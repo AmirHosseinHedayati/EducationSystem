@@ -35,9 +35,9 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show Student Courses In Current Semester"){
-     string ID;
-     cout<<"Enter Your Student ID: ";
-     cin>>ID;
+        string ID;
+        cout<<"Enter Your Student ID: ";
+        cin>>ID;
         controller.showStudentCurrentSemesterCourses(ID);
     }
 
@@ -92,6 +92,14 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show All Courses"){
+
+    }
+
+    else if(name == "ReadMembersFromFile"){
+
+    }
+
+    else if(name == "Calculate Total Salary"){
 
     }
 
