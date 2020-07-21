@@ -8,6 +8,8 @@
 class LeafMenu : public Menu{
 public:
     LeafMenu(std::string name, Menu* parent);
+    int numOfLines()const;
+    bool inVecPerson(const std::string& ID);
     virtual void showSubMenus() const override;
     virtual void run() override;
 

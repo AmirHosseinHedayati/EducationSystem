@@ -8,6 +8,14 @@ LeafMenu::LeafMenu(std::string name, Menu* parent)
 
 void LeafMenu:: showSubMenus() const {}
 
+int LeafMenu::numOfLines()const{
+int count = 0;
+string line;
+ifstream file("members.txt");
+while (getline(file, line))
+count++;
+return count;
+}
 void LeafMenu::run() {
     setCurrentMenu(parent);
 
@@ -101,7 +109,7 @@ void LeafMenu::run() {
         string command;
         char *cmd = new char[1000];
         ifstream input("members.txt");
-        for (size_t i{1}; i <= 6; ++i) {
+        for (size_t i{1}; i <= numOfLines(); ++i) {
             input.getline(cmd, 1000);
             command = (string) cmd;
             istringstream iss{command};
@@ -115,7 +123,7 @@ void LeafMenu::run() {
             }
             else if(results[0] == "S"){
                 Person *person;
-                std::map<std::string, double> csc {0,0};
+                std::map<std::string, double> csc ={{0,0}};
                 std::vector<std::string> pc {0};
                 double wh = (double&)results[4];
               person = new Student (results[1] , results[2] , results[3] , wh , pc , csc);
@@ -124,7 +132,7 @@ void LeafMenu::run() {
             }
             else if(results[0] == "D"){
                 Person *person;
-                std::map<std::string, double> csc {0,0};
+                std::map<std::string, double> csc {{0,0}};
                 std::vector<std::string> pc {0};
                 double wh = (double&)results[4];
               person = new DoubleMajorStudent (results[1] , results[2] , results[3] , wh , pc , csc);
@@ -133,7 +141,7 @@ void LeafMenu::run() {
         }
     }
     else if(name == "Calculate Total Salary"){
-
+        
     }
 
     else{

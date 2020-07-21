@@ -180,9 +180,20 @@ bool Controller::ispassedPreCourses(std::vector<std::string> v1, std::vector<std
     else
         return false;
 }
+
+Course& Controller::findCourse(std::string courseName){
+    for( auto& course : currentSemesterCourses){
+        if(course.courseName == courseName){
+            return course;
+        }
+    }
+    throw invalid_argument("The Student was not found!!");
+}
+
+
+}
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
-Course course;
-    if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,course.preCourses )){
+    if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,findCourse(courseName).preCourses )){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
 }
