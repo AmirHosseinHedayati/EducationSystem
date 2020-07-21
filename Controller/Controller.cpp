@@ -187,11 +187,9 @@ Course& Controller::findCourse(std::string courseName){
             return course;
         }
     }
-    throw invalid_argument("The Student was not found!!");
+    throw invalid_argument("The course was not found!!");
 }
 
-
-}
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
     if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,findCourse(courseName).preCourses )){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
