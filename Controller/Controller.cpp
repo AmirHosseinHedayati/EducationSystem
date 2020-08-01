@@ -181,12 +181,6 @@ void Controller:: takeCourse(const std::string& studentID, const std::string& co
     if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,findCourse(courseName).preCourses )){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
-    else if (!inStudents(studentID)){
-        throw invalid_argument("student not found !");
-    }
-    else if (inStudents(studentID) && !inCourses(courseName)){
-        throw invalid_argument("the course not found !");
-    }
 }
 
 void Controller::dropCourse(const std::string& studentID, const std::string& courseName){
@@ -194,15 +188,6 @@ void Controller::dropCourse(const std::string& studentID, const std::string& cou
     if(inCourses(courseName) && inCurrentSemesterCourse(studentID , courseName)  ){
        findStudent(studentID).currentSemesterCourses.erase(courseName);
 }
-    else if (!inStudents(studentID)){
-        throw invalid_argument("student not found !");
-    }
-    else if (inStudents(studentID) && !inCourses(courseName)){
-        throw invalid_argument("the course not found !");
-    }
-    else if(inStudents(studentID) && inCourses(courseName) && !inCurrentSemesterCourse(studentID,courseName)){
-        throw invalid_argument("the course you want to drop is not in your current semester courses !");
-    }
 }
 
 void Controller::showCurrentSemesterCourses(){
