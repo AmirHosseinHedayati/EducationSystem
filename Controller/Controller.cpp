@@ -8,7 +8,6 @@ using namespace std;
 Controller::Controller(std::string currentSemester)
    : currentSemester{move(currentSemester)} {}
 
-
 void Controller:: load(){
     ifstream inputStu("students.txt");
     int studentSize;
@@ -182,6 +181,12 @@ void Controller:: takeCourse(const std::string& studentID, const std::string& co
     if(inCourses(courseName) && !inPassedCourse(studentID,courseName )  && ispassedPreCourses( findStudent(studentID).passedCourses ,findCourse(courseName).preCourses )){
         findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
     }
+    else if (!inStudents(studentID)){
+        throw invalid_argument("student not found");
+    }
+    else if (inStudents(studentID) && !inCourses(courseName)){
+        throw invalid_argument("the course not found");
+    }
 }
 
 void Controller::dropCourse(const std::string& studentID, const std::string& courseName){
@@ -204,5 +209,5 @@ void Controller::showStudentCurrentSemesterCourses(const std::string& studentID)
 }
 
 void Controller::showStudentSalary(std::string ID){
-    cout<<findStudent(ID).calculateSalary();
+    cout<<findStudent(move(ID)).calculateSalary();
 }
