@@ -4,7 +4,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
 class Course {
     friend class Controller;
 

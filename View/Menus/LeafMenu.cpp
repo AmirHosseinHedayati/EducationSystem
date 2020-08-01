@@ -1,6 +1,7 @@
 #include "LeafMenu.h"
 #include <fstream>
 #include <iterator>
+#include <algorithm>
 using namespace std;
 
 LeafMenu::LeafMenu(std::string name, Menu* parent)
@@ -123,29 +124,27 @@ void LeafMenu::run() {
             }
             else if(results[0] == "S"){
                 Person *person;
-                std::map<std::string, double> csc ={{0,0}};
-                std::vector<std::string> pc {0};
                 double wh = (double&)results[4];
-              person = new Student (results[1] , results[2] , results[3] , wh , pc , csc);
+              person = new Student (results[1] , results[2] , results[3] , wh , vector<std::string>{} , map<std::string, double>{});
               controller.mathClass.push_back(person);
 
             }
             else if(results[0] == "D"){
                 Person *person;
-                std::map<std::string, double> csc {{0,0}};
-                std::vector<std::string> pc {0};
                 double wh = (double&)results[4];
-              person = new DoubleMajorStudent (results[1] , results[2] , results[3] , wh , pc , csc);
+              person = new DoubleMajorStudent (results[1] , results[2] , results[3] , wh , vector<std::string>{} , map<std::string, double>{});
               controller.mathClass.push_back(person);
             }
         }
     }
-    else if(name == "Calculate Total Salary"){
-        
-    }
-
-    else{
-        throw invalid_argument("This Menu hase not been defined!!");
+    else if(name == "Calculate Total Salary") {
+      double totalSalary = 0;
+     for ( auto mc : controller.mathClass) {
+       totalSalary += mc->calculateSalary();
+          }
+        }
+        else{
+        throw invalid_argument("This Menu has not been defined!!");
     }
 }
 

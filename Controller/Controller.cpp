@@ -69,7 +69,7 @@ void Controller::save() const{
 
 void Controller:: addStudent(std::string ID, std::string first, std::string last){
     if(!inStudents(ID)){
-        Student stu{move(ID), move(first), move(last), 0,
+        Student stu{(ID), move(first), move(last), 0,
                     vector<string>{}, map<string, double>{}};
         students.push_back(stu);
     }

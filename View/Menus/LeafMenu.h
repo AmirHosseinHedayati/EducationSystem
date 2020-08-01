@@ -6,6 +6,8 @@
 #include "../../Model/DoubleMajorStudent.h"
 #include "../../Controller/Controller.h"
 class LeafMenu : public Menu{
+private:
+    static double totalSalary;
 public:
     LeafMenu(std::string name, Menu* parent);
     int numOfLines()const;
