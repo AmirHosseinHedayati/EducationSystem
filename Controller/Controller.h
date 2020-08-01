@@ -29,6 +29,7 @@ public:
     void addProfessor(std::string ID, std::string first, std::string last, std::string title);
     void addCourse(std::string courseName, std::string profLast, std::string semester,
             std::vector<std::string> pre);
+    void showStudentSalary(std::string ID);
     void takeCourse(const std::string& studentID, const std::string& courseName);
     Student& findStudent(std::string ID);
     Course& findCourse(std::string courseName);

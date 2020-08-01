@@ -214,3 +214,7 @@ void Controller::showStudentCurrentSemesterCourses(const std::string& studentID)
         cout << csc.first <<"\t"<<csc.second<< endl;
     }
 }
+
+void Controller::showStudentSalary(std::string ID){
+    cout<<findStudent(ID).calculateSalary();
+}

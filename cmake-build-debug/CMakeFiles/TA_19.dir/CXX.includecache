@@ -30,6 +30,12 @@ vector
 ../Model/Course.h
 /cygdrive/d/clion/EducationSystem/Model/Course.h
 
+/cygdrive/d/clion/EducationSystem/Model/Course.cpp
+Course.h
+/cygdrive/d/clion/EducationSystem/Model/Course.h
+iostream
+-
+
 /cygdrive/d/clion/EducationSystem/Model/Course.h
 sstream
 -
@@ -37,10 +43,6 @@ string
 -
 vector
 -
-
-/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.cpp
-DoubleMajorStudent.h
-/cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.h
 
 /cygdrive/d/clion/EducationSystem/Model/DoubleMajorStudent.h
 Student.h
@@ -114,6 +116,8 @@ LeafMenu.h
 fstream
 -
 iterator
+-
+algorithm
 -
 
 /cygdrive/d/clion/EducationSystem/View/Menus/LeafMenu.h

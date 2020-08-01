@@ -52,12 +52,10 @@ void LeafMenu::run() {
     }
 
     else if(name == "Calculate Student Salary"){
-     double wh;
-     cout<<"Enter the work hours: ";
-     cin>>wh;
-     Student st;
-     st.setWorkHours(wh);
-     cout<<"Total Salary: "<<st.calculateSalary()<<"\n\n";
+        string ID;
+        cout<<"Enter Your Student ID: "<<endl;
+        cin>>ID;
+        controller.showStudentSalary(ID);
     }
 
     else if(name == "Show Professor Courses In Current Semester"){
