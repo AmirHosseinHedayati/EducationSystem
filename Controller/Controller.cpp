@@ -161,24 +161,12 @@ Student& Controller:: findStudent(string ID){
 
 bool Controller::ispassedPreCourses(std::vector<std::string> v1, std::vector<std::string> v2)
 {
-    int passedPre = 0;
-    for (int i = 0; i != v1.size(); ++i)
-    {
-        for (int j = 0; j != v2.size(); ++j)
-        {
-            if (v1[i] == v2[j])
-            {
-                ++passedPre;
-                break;
-            }
+    for (auto elem: v2) {
+        if (std::find(v1.begin(), v1.end(), elem) == v1.end()) {
+            return false;
         }
     }
-
-    if (passedPre == v2.size())
-        return true;
-
-    else
-        return false;
+    return true;
 }
 
 Course& Controller::findCourse(std::string courseName){
